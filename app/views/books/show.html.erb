@@ -1,1 +1,34 @@
-<h1>show</h1>
+<main>
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+
+<%= render 'users/userinfo', user: @user %>
+
+<%= render 'books/newbook', book: @book %>
+
+</div>
+<div class="col-md-8 offset-md-1">
+<thead><h2>Book detail</h2></thead>
+<table class="table table-hover table-inverse">
+<tbody>
+<tr>
+  <td>
+    <%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "d-block attachment user profile_image fallback", fallback: "no_image.jpg", size: "40x40" %>
+    <%= @user.name %>
+  </td>
+  <td><%= link_to @book.title, book_path(@book) %></td>
+  <td><%= @book.body %></td>
+  <td><%= link_to "Edit", edit_book_path(@book), class: 'btn btn-sm btn-success' %></td>
+  <td><%= link_to "Destroy", book_path(@book), class: 'btn btn-sm btn-danger', method: :delete %></td>
+<tr>
+
+</tbody>
+
+</table>
+</div>
+    </div>
+  </div>
+</div>
+</main>
