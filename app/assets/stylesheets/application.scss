@@ -16,3 +16,11 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+ div.error_explanation{
+  color: red;
+ }
+
+ div.flash, .notice, .alert{
+  color: limegreen;
+ }
