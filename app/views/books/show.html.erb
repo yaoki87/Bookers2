@@ -15,8 +15,10 @@
 <tbody>
 <tr>
   <td>
+    <%= link_to(user_path(@user.id)) do %>
     <%= attachment_image_tag @user, :profile_image, format: 'jpeg', class: "d-block attachment user profile_image fallback", fallback: "no_image.jpg", size: "40x40" %>
     <%= @user.name %>
+    <% end %>
   </td>
   <td><%= link_to @book.title, book_path(@book) %></td>
   <td><%= @book.body %></td>

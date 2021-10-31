@@ -1,5 +1,5 @@
 <main>
- 
+
 <div class = "error_explanation">
  <% if @book.errors.any? %>
   <h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
@@ -29,7 +29,7 @@
  </div>
  <% end %>
 
-  <%= link_to "show", book_path %> | <%= link_to "Back", books_path %>
+  <%= link_to "Show", book_path %> | <%= link_to "Back", books_path %>
 
 </div>
 </div>
