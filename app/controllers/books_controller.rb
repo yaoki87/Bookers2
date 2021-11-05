@@ -1,10 +1,6 @@
 class BooksController < ApplicationController
 before_action :ensure_correct_user, only:[:edit]
 
-  def new
-   @book = Book.new
-  end
-
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -29,6 +25,7 @@ before_action :ensure_correct_user, only:[:edit]
    @book = Book.find(params[:id])
    @user = @book.user
    @book_new = Book.new
+   @book_comment = BookComment.new
   end
 
   def destroy
