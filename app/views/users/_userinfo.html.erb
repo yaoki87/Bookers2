@@ -3,14 +3,34 @@
 <table class="table">
 <tbody><tr></tr>
 <tr>
-<th>name</th>
-<th><%= user.name %></th><br>
+  <th>name</th>
+  <th><%= user.name %></th><br>
+</tr>
+
+<tr>
+  <th>introduction</th>
+  <th><%= user.introduction %></th><br>
+</tr>
+
+<tr>
+  <th>follows</th>
+  <th>
+    <%= link_to(user_followings_path(user.id)) do %>
+    <%= user.followings.count %>
+    <% end %>
+  </th>
 </tr>
 <tr>
-<th>introduction</th>
-<th><%= user.introduction %></th><br>
+  <th>followers</th>
+  <th>
+    <%= link_to(user_followers_path(user.id)) do %>
+    <%= user.followers.count %>
+    <% end %>
+  </th>
 </tr>
-</tbody></table>
+
+</tbody>
+</table>
 
 <div class="row">
 <a><%= link_to " ", edit_user_path(user.id), class: ' fas fa-user-cog btn btn-outline-secondary btn-block' %></a>
