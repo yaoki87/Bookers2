@@ -50,30 +50,15 @@
 <table>
   <tbody>
 
-    <div>
-      <% @book.book_comments.each do |book_comment| %>
-      　<% book_comment_user = book_comment.user %>
-      　<tr>
-          <td>
-        　<%= attachment_image_tag book_comment_user, :profile_image, format: 'jpeg', class: "d-block attachment user profile_image fallback", fallback: "no_image.jpg", size: "40x40" %>
-          <%= book_comment.user.name %>
-          </td>
-          <td><%= book_comment.comment %></td>
-        	<% if current_user == book_comment_user %>
-          	<td><%= link_to 'Destroy', book_book_comment_path(book_comment.book_id, book_comment.id), class: 'btn-sm btn-danger', method: :delete %></td>
-        	<% end %>
-        </tr>
-        <% end %>
-    </div>
+  <div id="comments_area"> 
+    <%= render 'book_comments/post_comments', book: @book %>
+  </div>
   </tbody>
 </table>
 
-      <div>
-        <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
-          <%= f.text_area :comment, size:"90x5",placeholder: "コメントをここに" %>
-          <%= f.submit "送信" %>
-        <% end %>
-      </div>
+<div class="new-comment">
+  <%= render 'book_comments/form', book: @book, book_comment: @book_comment %>
+</div>
 
 </div>
   </div>
